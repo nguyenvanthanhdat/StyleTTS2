@@ -1,4 +1,4 @@
-SoundFile
+SoundFile==0.10.3.post1
 torchaudio
 munch
 torch
