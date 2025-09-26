@@ -776,9 +776,9 @@ def main(config_path):
                 'optimizer': optimizer.state_dict(),
                 'iters': iters,
                 'val_loss': loss_test / iters_test,
-                'epoch': epoch,
+                'epoch': epoch + 1,
             }
-            save_path = osp.join(log_dir, 'epoch_2nd_%05d.pth' % epoch)
+            save_path = osp.join(log_dir, 'epoch_2nd_%05d.pth' % (epoch + 1))
             torch.save(state, save_path)
             
             # if estimate sigma, save the estimated simga

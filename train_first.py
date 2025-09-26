@@ -422,9 +422,9 @@ def main(config_path):
                     'optimizer': optimizer.state_dict(),
                     'iters': iters,
                     'val_loss': loss_test / iters_test,
-                    'epoch': epoch,
+                    'epoch': epoch + 1,
                 }
-                save_path = osp.join(log_dir, 'epoch_1st_%05d.pth' % epoch)
+                save_path = osp.join(log_dir, 'epoch_1st_%05d.pth' % (epoch + 1))
                 torch.save(state, save_path)
                                 
     if accelerator.is_main_process:
@@ -434,7 +434,7 @@ def main(config_path):
             'optimizer': optimizer.state_dict(),
             'iters': iters,
             'val_loss': loss_test / iters_test,
-            'epoch': epoch,
+            'epoch': epoch + 1,
         }
         save_path = osp.join(log_dir, config.get('first_stage_path', 'first_stage.pth'))
         torch.save(state, save_path)
