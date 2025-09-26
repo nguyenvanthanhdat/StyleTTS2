@@ -709,5 +709,7 @@ def load_checkpoint(model, optimizer, path, load_only_params=True, ignore_module
     else:
         epoch = 0
         iters = 0
+    
+    print(f"Loaded checkpoint '{path}' (epoch {epoch}, iters {iters})")
         
     return model, optimizer, epoch, iters
